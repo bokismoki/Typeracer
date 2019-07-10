@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #424342;
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+
+  &::before {
+    position: absolute;
+    content: "Typeracer";
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 5.3em;
+    color: rgba(37, 48, 49, 0.2);
+    top: 45%;
+    left: -15%;
+    transform: rotate(-50deg);
+    z-index: -1;
+  }
+
+  .sticker {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background-color: rgba(37, 48, 49, 0.5);
+  }
+
+  .sticker1 {
+    top: 0;
+    left: -10%;
+    transform: rotate(-45deg);
+  }
+
+  .sticker2 {
+    bottom: -5%;
+    right: 0%;
+    transform: rotate(-110deg);
+  }
+
+  .randomWordBox {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+
+    .randomWord {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
+  .playResetBtn {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    margin: 1.5em 0;
+    cursor: pointer;
+  }
+
+  .myAnswer {
+    padding: 0.8em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .infoBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+
+    .timeLeft {
+      background-color: #fff;
+      margin-right: 1em;
+      padding: 2em;
+      border-radius: 5px;
+      min-width: 85px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "Time Left";
+        text-transform: uppercase;
+        width: max-content;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        color: #253031;
+        font-size: 0.9em;
+      }
+    }
+
+    .points {
+      background-color: #fff;
+      margin-left: 1em;
+      padding: 2em;
+      border-radius: 5px;
+      min-width: 85px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "Points";
+        text-transform: uppercase;
+        width: max-content;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        color: #253031;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+.progressBarBox {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 50px;
+  margin-top: 50px;
+  padding: 1em;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    content: "Bar = 0% - 20% (-1p/s) ; 21% - 89% (+5p/correct answer) ; 90% - 100% (+10p/correct answer)";
+    font-weight: bold;
+    text-transform: uppercase;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    z-index: 1;
+  }
+
+  .progressBar {
+    position: absolute;
+    height: 100%;
+    background-color: lime;
+    border-radius: 50px;
+    top: 0;
+    left: 0;
+    transition: width 2000ms ease-out, background-color 1000ms;
+  }
+}
