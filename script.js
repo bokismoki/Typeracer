@@ -84,21 +84,7 @@ app.addEventListener("click", e => {
 
         play = true;
 
-        let x = setInterval(() => {
-            if (timeCountdown === 1) clearInterval(x);
-            timeCountdown--;
-            timeLeft.innerHTML = timeCountdown;
-            progressBarWidth -= 1.66666667;
-            progressBar.style.width = progressBarWidth + "%";
-            if (progressBarWidth <= 20) {
-                progressBar.style.backgroundColor = "crimson";
-                pointsCounter--;
-                points.innerHTML = pointsCounter;
-            } else {
-                progressBar.style.backgroundColor = "lime";
-                points.innerHTML = pointsCounter;
-            }
-        }, 1000)
+        timeFunction();
 
         playResetBtn.classList.add("fa-redo-alt");
         playResetBtn.classList.remove("fa-play");
@@ -108,21 +94,7 @@ app.addEventListener("click", e => {
     if (e.target.classList.contains("fa-redo-alt")) {
 
         if (timeCountdown === 0) {
-            let x = setInterval(() => {
-                if (timeCountdown === 1) clearInterval(x);
-                timeCountdown--;
-                timeLeft.innerHTML = timeCountdown;
-                progressBarWidth -= 1.66666667;
-                progressBar.style.width = progressBarWidth + "%";
-                if (progressBarWidth <= 20) {
-                    progressBar.style.backgroundColor = "crimson";
-                    pointsCounter--;
-                    points.innerHTML = pointsCounter;
-                } else {
-                    progressBar.style.backgroundColor = "lime";
-                    points.innerHTML = pointsCounter;
-                }
-            }, 1000)
+            timeFunction();
         }
 
         pointsCounter = 0;
@@ -134,6 +106,24 @@ app.addEventListener("click", e => {
 
     }
 });
+
+const timeFunction = () => {
+    let x = setInterval(() => {
+        if (timeCountdown === 1) clearInterval(x);
+        timeCountdown--;
+        timeLeft.innerHTML = timeCountdown;
+        progressBarWidth -= 1.66666667;
+        progressBar.style.width = progressBarWidth + "%";
+        if (progressBarWidth <= 20) {
+            progressBar.style.backgroundColor = "crimson";
+            pointsCounter--;
+            points.innerHTML = pointsCounter;
+        } else {
+            progressBar.style.backgroundColor = "lime";
+            points.innerHTML = pointsCounter;
+        }
+    }, 1000);
+};
 
 myAnswer.addEventListener("keydown", e => {
 
